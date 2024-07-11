@@ -1,0 +1,204 @@
+
+.borel-regular {
+  font-family: "Borel", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+.concert-one-regular {
+  font-family: "Concert One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+* {
+
+  
+  --rosado: #FFABE1;
+  --amarillo: #F9F9E0;
+  --cafe: #DE8971;
+
+}
+
+body{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.nav{
+  height: 130px;
+  width: 100%;
+  background-color: var(--amarillo) ;
+  color: var(--cafe) ;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 .5rem;
+}
+
+.link-list {
+  font-family: 'Borel';
+  display: flex;
+  margin: 0;
+  list-style: none;
+}
+
+.link{
+  padding: .5rem;
+}
+
+.link a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.logo{
+  fill: var(--rosado);
+}
+
+/* hero */
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color:transparent;
+    /* -webkit-mask: linear-gradient(to bottom, transparent 0%, black 20%);  */
+    /* mask: linear-gradient(0deg, transparent, var(--amarillo) 30%, var(--amarillo) 80%, transparent); */
+    box-shadow: 0 40px 20px -20px var(--amarillo) inset, 0 -40px 20px -20px var(--amarillo) inset ;
+    
+}
+
+.left {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: -2;
+    background: red;
+}
+
+.webgl {
+    margin: 0;
+    height: 500px;
+    position: relative;
+    z-index: -1;
+    
+}
+
+.right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 3rem;
+}
+
+.right h1 {
+    font-family: 'Concert One';
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.right p {
+    font-size: 1.5rem;
+    font-family: 'Borel';
+    text-align: center;
+}
+
+.right a {
+    background-color: white;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    color: black;
+    margin-top: 2rem;
+}
+
+/* Diplomas */
+.diplomas{
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.dipin{
+  padding-block: 1rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+  
+}
+.dipin img{
+  width: 180px;
+  height: auto;
+}
+
+
+.diplomas[data-animated="true"] {
+  overflow: hidden;
+  -webkit-mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+  mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+}
+
+.diplomas[data-animated="true"] .dipin {
+  width: max-content;
+  flex-wrap: nowrap;
+  animation: scroll var(--_animation-duration, 20s)
+    var(--_animation-direction, forwards) linear infinite;
+}
+
+.diplomas[data-direction="right"] {
+  --_animation-direction: reverse;
+}
+
+.diplomas[data-direction="left"] {
+  --_animation-direction: forwards;
+}
+
+.diplomas[data-direction="fast"] {
+  --_animation-duration: 5s;
+}
+
+.diplomas[data-direction="slow"] {
+  --_animation-duration: 60s;
+}
+
+
+@keyframes scroll{
+  to {
+    transform: translate(calc(-50% - 0.5rem));
+  }
+}
+
+
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        box-shadow: 0 40px 20px -20px var(--amarillo) inset; /* Apply only top box shadow for smaller screens */
+    }
+
+    .left {
+        margin:0 0 2rem 0;
+        /* box-shadow: -40px 20px -20px var(--amarillo) inset ; */
+    }
+
+    .right {
+        padding: 2rem;
+        justify-content: center;
+        box-shadow: 0 -40px 20px -20px var(--amarillo) inset;
+    }
+
+    .nav{ 
+      flex-direction: column;
+      height: auto;
+  }
+
+}
+
+/* nav responsive hamburguer menu */
